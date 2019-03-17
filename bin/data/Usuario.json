@@ -10,5 +10,11 @@
     "password": "123@teste",
     "name": "Teste2",
     "status": true
+  },
+  {
+    "email": "apicultor@cliente.com",
+    "password": "beemoney",
+    "name": "Apicultor exemplo",
+    "status": true
   }
 ]
