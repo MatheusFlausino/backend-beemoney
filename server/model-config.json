@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "sources": [
+      "./node_modules/loopback-component-passport/lib/models",
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Usuario": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "mongodb",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "Usuario",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "userCredential": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "userIdentity": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "Storage": {
+    "dataSource": "file",
+    "public": true
+  },
+  "Faq": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Colmeia": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Sensor": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "SensorColmeia": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Medida": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Notificacao": {
+    "dataSource": "mongodb",
+    "public": true
+  }
+}
