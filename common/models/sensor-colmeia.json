@@ -6,16 +6,16 @@
     "validateUpsert": true
   },
   "mixins": {
-    "TimeStamp": true
+    "TimeStamp": true,
+    "KlBaseMixin": true
   },
   "properties": {
-    "question": {
-      "type": "string",
-      "required": true
-    },
-    "answer": {
-      "type": "string",
-      "required": true
+    "valor": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
     }
   },
   "validations": [],

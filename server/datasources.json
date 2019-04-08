@@ -1,11 +1,15 @@
 {
-  "mongodb": {
-    "connector": "loopback-connector-mongodb",
-    "host": "127.0.0.1",
-    "port": 27017,
-    "database": "basedb",
-    "username": "",
-    "password": ""
+
+  "postgres": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "",
+    "database": "beemoney",
+    "password": "",
+    "name": "postgres",
+    "user": "postgres",
+    "connector": "postgresql",
+    "debug": true
   },
   "file": {
     "name": "file",

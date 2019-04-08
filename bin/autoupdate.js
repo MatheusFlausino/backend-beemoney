@@ -1,13 +1,13 @@
 var path = require('path');
 var app = require(path.resolve(__dirname, '../server/server'));
 var arrModels = require(path.resolve(__dirname, '../server/model-config.json'));
-var ds = app.datasources.mongodb;
+var ds = app.datasources.postgres;
 require('events').EventEmitter.prototype._maxListeners = 100;
 
 var promises = new Array();
 Object.keys(arrModels).forEach(model => {
     
-    if (arrModels[model].dataSource!="mongodb"){
+    if (arrModels[model].dataSource!="postgres"){
         return;
     }
 

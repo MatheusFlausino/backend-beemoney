@@ -1,6 +1,6 @@
 {
   "name": "Apiario",
-  "plural": "colmeias",
+  "plural": "apiarios",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -10,16 +10,13 @@
   },
   "properties": {
     "nome": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "desc": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "localizacao": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],

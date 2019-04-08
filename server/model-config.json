@@ -15,11 +15,11 @@
     ]
   },
   "Usuario": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "AccessToken": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false,
     "relations": {
       "user": {
@@ -30,23 +30,23 @@
     }
   },
   "userCredential": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false
   },
   "userIdentity": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false
   },
   "ACL": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false
   },
   "Role": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": false
   },
   "Storage": {
@@ -54,27 +54,27 @@
     "public": true
   },
   "Faq": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "Colmeia": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "Sensor": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "SensorColmeia": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "Medida": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   },
   "Notificacao": {
-    "dataSource": "mongodb",
+    "dataSource": "postgres",
     "public": true
   }
 }

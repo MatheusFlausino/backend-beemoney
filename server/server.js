@@ -62,6 +62,7 @@ app.use(function setCurrentUser(req, res, next) {
 require('loopback-ds-timestamp-mixin')(app);
 // Add Kl-mixin-userIdentity to loopback
 require('./mixins/kb-mixin-userIdentity')(app);
+require('./mixins/kb-mixin-base')(app);
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {

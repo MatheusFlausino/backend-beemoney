@@ -13,10 +13,16 @@
       "type": "string"      
     },
     "valor_limite_min": {
-      "type": "number"      
+      "type": "number",
+      "postgresql": {
+        "dataType": "double precision"
+      }      
     },
     "valor_limite_max": {
-      "type": "number"      
+      "type": "number",
+      "postgresql": {
+        "dataType": "double precision"
+      }      
     }
   },
   "validations": [],

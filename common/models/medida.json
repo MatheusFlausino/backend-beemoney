@@ -6,7 +6,8 @@
     "validateUpsert": true
   },
   "mixins": {
-    "TimeStamp": true
+    "TimeStamp": true,
+    "KlBaseMixin":true
   },
   "properties": {
     "nome": {
@@ -27,12 +28,6 @@
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
       "permission": "ALLOW"
     }
   ],

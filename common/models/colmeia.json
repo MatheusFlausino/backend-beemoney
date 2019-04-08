@@ -19,11 +19,17 @@
     },
     "peso_vazia": {
       "type": "number",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
     },
     "peso_cheio": {
       "type": "number",
-      "required": true
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
     }
   },
   "validations": [],
