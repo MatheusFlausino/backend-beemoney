@@ -76,5 +76,9 @@
   "Notificacao": {
     "dataSource": "postgres",
     "public": true
+  },
+  "Alarme": {
+    "dataSource": "postgres",
+    "public": true
   }
 }
