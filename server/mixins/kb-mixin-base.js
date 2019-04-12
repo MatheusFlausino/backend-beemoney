@@ -17,15 +17,7 @@ function KlBaseMixin(Model, options) {
 
   Model.remoteMethod('autocomplete', {
     description: 'retrieves options for autocomplete field',
-    accepts: ([{
-        arg: 'params',
-        type: 'object',
-        required: true,
-        http: function (ctx) {
-          var req = ctx.req.params;
-          return req;
-        }
-      },
+    accepts: ([
       {
         arg: 'req',
         type: 'object',
@@ -33,8 +25,7 @@ function KlBaseMixin(Model, options) {
         http: {
           source: 'req'
         }
-      }
-      // { arg: 'accessToken', type: 'object', http: function (ctx) { return ctx.req.accessToken; } }
+      }      
     ]),
     returns: {
       arg: 'rows',
@@ -44,38 +35,27 @@ function KlBaseMixin(Model, options) {
     },
     http: {
       verb: 'get',
-      path: '/autocomplete/:field/:search'
+      path: '/autocomplete'
     }
   });
 
   Model.autocomplete = autocomplete;
 
-  function autocomplete(model, params, req, fn) {
-    console.log('AUTOCOMPLETE CALL', modelName, params);
-
-    var _model = Model.app.models[modelName];
+  function autocomplete(req, fn) {
+    // console.log('AUTOCOMPLETE CALL', modelName, params);
+    var q = req.query;    
+    var _model = Model.app.models[q.model];
     var relations = Model.app.models[modelName].definition.settings.relations;
-    var _field = params.field;
+    var _field = q.field;
 
     if (!_model.custom.autocomplete[_field]) {
       fn('autocomplete settings not defined. check custom.autocomplete');
     }
 
-    if (_model.custom.autocomplete[_field].customQuery !== undefined) {
-      _model.custom.autocomplete[_field].customQuery(modelName, params, req, fn);
-      return;
-    }
-
     var autocompleteSettings = _model.custom.autocomplete[_field];
 
     if (relations[_field]) {
-      var _relation = relations[_field];
-      var relationModel = Model.app.models[_relation.model];
-    } else {
-      if (!autocompleteSettings.model) {
-        fn('autocomplete model not defined. check custom.autocomplete');
-      }
-      var relationModel = Model.app.models[autocompleteSettings.model];
+      var relationModel = Model.app.models[autocompleteSettings.model];   
     }
   }
 

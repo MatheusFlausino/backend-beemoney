@@ -9,6 +9,9 @@
     "TimeStamp": true,
     "KlBaseMixin": true
   },
+  "scope":{
+    "order":"createdAt DESC"
+  },
   "properties": {
     "valor": {
       "type": "number",
