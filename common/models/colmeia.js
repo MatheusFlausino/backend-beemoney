@@ -42,16 +42,26 @@ module.exports = function (Colmeia) {
         _obj.last_med_day_formated = moment(res.__data.medicoes[0].createdAt).format('HH:mm') + ' - ' + moment(res.__data.medicoes[0].createdAt).format('DD/MM/YYYY')
         _obj.last_med_yest = null;
         _obj.last_med_day = null;
-        res.__data.medicoes.forEach(element => {
-          if (moment(element.createdAt).format('DD/MM/YYYY') == moment().subtract(1, 'day').format('DD/MM/YYYY')) {
-            _obj.last_med_yest = element.valor;
-            _obj.last_med_day = moment(element.createdAt).format('DD/MM');
+        for (var x in res.__data.medicoes) {
+          if (moment(res.__data.medicoes[x].createdAt).format('DD/MM/YYYY') == moment().subtract(1, 'day').format('DD/MM/YYYY')) {
+            _obj.last_med_yest = res.__data.medicoes[x].valor;
+            _obj.last_med_day = moment(res.__data.medicoes[x].createdAt).format('DD/MM');
             _obj.gain = parseFloat((_obj.last_med - _obj.last_med_yest).toFixed(2));
             _obj.colmeia = res;
             fn(null, _obj)
-            return false;
+            break;            
           }
-        });
+        }
+        // res.__data.medicoes.forEach(element => {
+        //   if (moment(element.createdAt).format('DD/MM/YYYY') == moment().subtract(1, 'day').format('DD/MM/YYYY')) {
+        //     _obj.last_med_yest = element.valor;
+        //     _obj.last_med_day = moment(element.createdAt).format('DD/MM');
+        //     _obj.gain = parseFloat((_obj.last_med - _obj.last_med_yest).toFixed(2));
+        //     _obj.colmeia = res;
+        //     fn(null, _obj)
+        //     return false;
+        //   }
+        // });
 
       })
 
